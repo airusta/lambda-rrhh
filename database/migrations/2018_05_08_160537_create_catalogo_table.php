@@ -15,6 +15,8 @@ class CreateCatalogoTable extends Migration
     {
         Schema::create('catalogo', function (Blueprint $table) {
             $table->increments('id_catalogo');
+            $table->string('nombre',50);
+            $table->string('descripcion',50)->nullable();
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
@@ -24,8 +26,7 @@ class CreateCatalogoTable extends Migration
             $table->string('host_ini');
             $table->string('host_mod',50)->nullable();
             $table->string('host_del',50)->nullable();
-            $table->string('nombre',50);
-            $table->string('descripcion',50);
+
         });
     }
 
