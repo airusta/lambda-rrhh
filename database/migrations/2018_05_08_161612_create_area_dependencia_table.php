@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateAreaDependenciaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
-            $table->increments('id_usuario');
-            $table->string('nombre',50);
-            $table->string('email',50)->unique();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('area_dependencia', function (Blueprint $table) {
+            $table->increments('id_area_dependencia');
+            $table->unsignedInteger('area_id_area');
+            $table->unsignedInteger('area_id_area_padre');
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
@@ -28,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('host_ini');
             $table->string('host_mod')->nullable();
             $table->string('host_del')->nullable();
+            $table->foreign('area_id_area')->references('id_area')->on('area');
+            $table->foreign('area_id_area_padre')->references('id_area')->on('area');
         });
     }
 
@@ -38,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('area_dependencia');
     }
 }
