@@ -45,7 +45,7 @@ class CreateEmpleadoTable extends Migration
             $table->string('host_del',50)->nullable();
             $table->unsignedInteger('id_usuario');
             $table->foreign('id_usuario')->references('id_usuario')->on('usuario');
-            $table->unsignedInteger('id_tutor')->nullable();
+            $table->unsignedInteger('id_tutor');
             $table->foreign('id_tutor')->references('id_tutor')->on('tutor');
         });
     }
