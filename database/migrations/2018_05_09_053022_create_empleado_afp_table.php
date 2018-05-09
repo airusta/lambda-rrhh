@@ -17,6 +17,7 @@ class CreateEmpleadoAfpTable extends Migration
             $table->increments('id_empleado_afp');
             $table->unsignedInteger('id_empleado');
             $table->unsignedInteger('id_afp');
+            $table->string('nua_cua');
             $table->decimal('monto_aporte',8,2);
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
