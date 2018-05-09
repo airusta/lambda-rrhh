@@ -18,6 +18,7 @@ class CreateOpcionTable extends Migration
             $table->string('codigo',50);
             $table->string('descripcion_corta',50)->nullable();
             $table->string('descripcion_larga',50)->nullable();
+            $table->unsignedInteger('id_catalogo');
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
@@ -27,6 +28,7 @@ class CreateOpcionTable extends Migration
             $table->string('host_ini');
             $table->string('host_mod',50)->nullable();
             $table->string('host_del',50)->nullable();
+            $table->foreign('id_catalogo')->references('id_catalogo')->on('catalogo');
 
 
         });
