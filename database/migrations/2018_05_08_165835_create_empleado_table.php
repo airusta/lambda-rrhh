@@ -32,8 +32,9 @@ class CreateEmpleadoTable extends Migration
             $table->string('direccion',300);
             $table->string('cat_estado_civil',10);
             $table->string('cat_nacionalidad',10);
-            $table->unsignedInteger('id_usuario');
+            $table->string('cat_discapacidad',10)->nullable();
             $table->unsignedInteger('id_tutor')->nullable();
+            $table->unsignedInteger('id_usuario');
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
