@@ -38,9 +38,9 @@ class CreateEmpleadoTable extends Migration
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
-            $table->integer('fch_ini');
-            $table->integer('fch_mod')->nullable();
-            $table->integer('fch_del')->nullable();
+            $table->dateTime('fch_ini');
+            $table->dateTime('fch_mod')->nullable();
+            $table->dateTime('fch_del')->nullable();
             $table->string('host_ini',50);
             $table->string('host_mod',50)->nullable();
             $table->string('host_del',50)->nullable();
