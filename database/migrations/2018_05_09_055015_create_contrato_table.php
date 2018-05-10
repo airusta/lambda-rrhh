@@ -16,6 +16,7 @@ class CreateContratoTable extends Migration
         Schema::create('contrato', function (Blueprint $table) {
             $table->increments('id_contrato');
             $table->string('cat_contrato',45);
+            $table->string('modalidad',45);
             $table->string('cargo',45);
             $table->decimal('salario',8,2);
             $table->decimal('multa',8,2);
