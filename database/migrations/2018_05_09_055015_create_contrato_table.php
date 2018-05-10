@@ -17,7 +17,6 @@ class CreateContratoTable extends Migration
             $table->increments('id_contrato');
             $table->string('cat_contrato',45);
             $table->string('cargo',45);
-            $table->string('numero_item',30);
             $table->decimal('salario',8,2);
             $table->decimal('multa',8,2);
             $table->unsignedInteger('id_empleado');
