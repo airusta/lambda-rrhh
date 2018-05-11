@@ -16,7 +16,7 @@ class CreateEmpleadoDependenciaTable extends Migration
         Schema::create('empleado_dependencia', function (Blueprint $table) {
             $table->increments('id_empleado_dependencia');
             $table->unsignedInteger('id_empleado');
-            $table->unsignedInteger('id_empleado_padre');
+            $table->unsignedInteger('id_empleado_padre')->nullable();
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();

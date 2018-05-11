@@ -16,7 +16,7 @@ class CreateAreaDependenciaTable extends Migration
         Schema::create('area_dependencia', function (Blueprint $table) {
             $table->increments('id_area_dependencia');
             $table->unsignedInteger('id_area');
-            $table->unsignedInteger('id_area_padre');
+            $table->unsignedInteger('id_area_padre')->nullable();
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
