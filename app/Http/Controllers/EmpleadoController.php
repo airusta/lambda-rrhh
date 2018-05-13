@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Empleado;
+use App\User;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\EmpleadoFormRequest;
 use DB;
@@ -34,6 +35,11 @@ class EmpleadoController extends Controller
     }
     public function store(EmpleadoFormRequest $request)
     {
+        $user =  new User;
+        $user->usuario=$request->get('usuario');
+        $user->email=$request->get('email');
+        $user->password=bcrypt($request->get('password'));
+        $user->save();
         $empleado=new Empleado;
         $empleado->primer_nombre=$request->get('primer_nombre');
         $empleado->segundo_nombre=$request->get('segundo_nombre');
@@ -48,10 +54,12 @@ class EmpleadoController extends Controller
         $empleado->direccion=$request->get('direccion');
         $empleado->cat_estado_civil=$request->get('cat_estado_civil');
         $empleado->cat_nacionalidad=$request->get('cat_nacionalidad');
+        $empleado->id_usuario=$user->id_usuario;
         $empleado->usuario_ini=$request->get('usuario_ini');
         $empleado->fch_ini=$request->get('fch_ini');
         $empleado->host_ini=$request->get('host_ini');
         $empleado->save();
+
         return Redirect::to('empleado');
     }
     public function show($id)

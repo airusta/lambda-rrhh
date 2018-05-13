@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             <label for="nombre">Fecha Nacimiento</label>
-            <input type="text" name="fecha_nacimiento" class="form-control" placeholder=".....">
+            <input type="date" name="fecha_nacimiento" class="form-control" placeholder=".....">
         </div>
         <div class="form-group">
             <label for="nombre">Genero</label>
@@ -70,7 +70,18 @@
             <input type="text" name="fch_ini" class="form-control" placeholder="fecha">
             <input type="text" name="host_ini" class="form-control" placeholder="host">
         </div>
-
+        <div class="form-group">
+            <label for="nombre">Usuario</label>
+            <input type="text" name="usuario" class="form-control" placeholder="......">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Email</label>
+            <input type="text" name="email" class="form-control" placeholder="......">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Contraseña</label>
+            <input type="password" name="pass" class="form-control" placeholder=".....">
+        </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>
             <button class="btn btn-danger" type="reset">Cancelar</button>
