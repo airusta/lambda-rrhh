@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Seguro;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -31,14 +33,18 @@ class EmpleadoController extends Controller
     }
     public function create()
     {
-        return view("empleado.create");
+        $seguro = Seguro::get();
+        return view("empleado.create")->with('seguro',$seguro);
     }
     public function store(EmpleadoFormRequest $request)
     {
         $user =  new User;
-        $user->usuario=$request->get('usuario');
+        $user->nombre=$request->get('usuario');
         $user->email=$request->get('email');
         $user->password=bcrypt($request->get('password'));
+        $user->usuario_ini=1;
+        $user->fch_ini=Carbon::now();
+        $user->host_ini='localhost';
         $user->save();
         $empleado=new Empleado;
         $empleado->primer_nombre=$request->get('primer_nombre');
