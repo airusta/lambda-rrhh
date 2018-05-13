@@ -33,7 +33,9 @@ class CreateEmpleadoTable extends Migration
             $table->string('cat_estado_civil',10);
             $table->string('cat_nacionalidad',10);
             $table->string('cat_discapacidad',45)->nullable();
+            $table->string('cat_discapacidad2',45)->nullable();
             $table->unsignedInteger('id_usuario')->nullable()->unique();
+            $table->unsignedInteger('id_sucursal')->nullable();
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
@@ -44,6 +46,7 @@ class CreateEmpleadoTable extends Migration
             $table->string('host_mod',50)->nullable();
             $table->string('host_del',50)->nullable();
             $table->foreign('id_usuario')->references('id_usuario')->on('usuario');
+            $table->foreign('id_sucursal')->references('id_sucursal')->on('sucursal');
         });
     }
 

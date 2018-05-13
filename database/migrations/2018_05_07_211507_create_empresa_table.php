@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeguroTable extends Migration
+class CreateEmpresaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSeguroTable extends Migration
      */
     public function up()
     {
-        Schema::create('seguro', function (Blueprint $table) {
-            $table->increments('id_seguro');
-            $table->string('cat_seguro',45);
-            $table->string('caja_de_salud',45)->nullable();
+        Schema::create('empresa', function (Blueprint $table) {
+            $table->increments('id_empresa');
+            $table->string('nombre',45);
             $table->integer('usuario_ini');
             $table->integer('usuario_mod')->nullable();
             $table->integer('usuario_del')->nullable();
@@ -36,6 +35,6 @@ class CreateSeguroTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seguro');
+        Schema::dropIfExists('empresa');
     }
 }

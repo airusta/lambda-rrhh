@@ -22,10 +22,13 @@ class CreatePlanillaPagoTable extends Migration
             $table->decimal('bono_antiguedad',8,2)->nullable();
             $table->decimal('bono_produccion',8,2)->nullable();
             $table->decimal('bono_subisidio',8,2)->nullable();
+            $table->decimal('otros_bonos',8,2)->nullable();
             $table->integer('horas_extra')->nullable();
             $table->decimal('monto_horas_extra',8,2)->nullable();
             $table->integer('horas_recargo_nocturno')->nullable();
             $table->decimal('monto_horas_extra_nocturnas',8,2)->nullable();
+            $table->integer('domingos_trabajados')->nullable();
+            $table->decimal('monto_dominical',8,2)->nullable();
             $table->integer('horas_extra_dominicales')->nullable();
             $table->decimal('monto_horas_extra_dominicales',8,2)->nullable();
             $table->integer('horas_extra_feriado')->nullable();
