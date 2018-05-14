@@ -83,6 +83,14 @@
             <input type="password" name="pass" class="form-control" placeholder=".....">
         </div>
         <div class="form-group">
+            <label for="nombre">Seguro</label>
+            <select class="form-control" name="seguro">
+                @foreach($seguro as $s)
+                    <option value="{{$s->id_seguro}}">{{$s->cat_seguro}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>
             <button class="btn btn-danger" type="reset">Cancelar</button>
         </div>
