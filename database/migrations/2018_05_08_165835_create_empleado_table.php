@@ -22,7 +22,7 @@ class CreateEmpleadoTable extends Migration
             $table->string('segundo_apellido',50)->nullable();
             $table->string('tercer_apellido',50)->nullable();
             $table->string('documento',50);
-            $table->string('complemento1',10)->nullable();
+            $table->string('complemento1',10);
             $table->string('complemento2',10)->nullable();
             $table->string('cat_tipo_documento',10);
             $table->date('fecha_nacimiento');

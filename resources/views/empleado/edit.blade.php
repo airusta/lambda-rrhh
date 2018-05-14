@@ -21,7 +21,11 @@
         </div>
         <div class="form-group">
             <label for="nombre">Segundo Nombre</label>
-            <input type="text" name="segundo_nombre" class="form-control" value="{{$empleado->segundo_nombre}}" placeholder=".....">
+            <input type="text" name="segundo_nombre" class="form-control" value="{{$empleado->segundo_nombre}}" placeholder="campo opcional">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Tercer Nombre</label>
+            <input type="text" name="tercer_nombre" class="form-control" value="{{$empleado->tercer_nombre}}" placeholder="campo opcional">
         </div>
         <div class="form-group">
             <label for="nombre">Apellido</label>
@@ -29,12 +33,17 @@
         </div>
         <div class="form-group">
             <label for="nombre">Segundo Apellido</label>
-            <input type="text" name="segundo_apellido" class="form-control" value="{{$empleado->segundo_apellido}}" placeholder=".....">
+            <input type="text" name="segundo_apellido" class="form-control" value="{{$empleado->segundo_apellido}}" placeholder="campo opcional">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Tercer Apellido</label>
+            <input type="text" name="tercer_apellido" class="form-control" value="{{$empleado->tercer_apellido}}" placeholder="campo opcional">
         </div>
         <div class="form-group">
             <label for="nombre">Documento</label>
-            <input type="text" name="documento" class="form-control" value="{{$empleado->documento}}" placeholder=".....">
-            <input type="text" name="complemento1" class="form-control" value="{{$empleado->complemento1}}" placeholder="complemento">
+            <input type="text" name="documento" class="form-control" value="{{$empleado->documento}}" placeholder="....."><br>
+            <input type="text" name="complemento1" class="form-control" value="{{$empleado->complemento1}}" placeholder="extension1"><br>
+            <input type="text" name="complemento2" class="form-control" value="{{$empleado->complemento2}}" placeholder="extension2">
         </div>
         <div class="form-group">
             <label for="nombre">Tipo Documento</label>
@@ -50,7 +59,11 @@
         </div>
         <div class="form-group">
             <label for="nombre">Celular</label>
-            <input type="text" name="celular" class="form-control" value="{{$empleado->celular}}" placeholder=".....">
+            <input type="text" name="celular" class="form-control" value="{{$empleado->celular}}" placeholder="campo opcional">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Telefono</label>
+            <input type="text" name="telefono" class="form-control" value="{{$empleado->telefono}}" placeholder="campo opcional">
         </div>
         <div class="form-group">
             <label for="nombre">Direccion</label>
@@ -65,10 +78,8 @@
             <input type="text" name="cat_nacionalidad" class="form-control" value="{{$empleado->cat_nacionalidad}}" placeholder=".....">
         </div>
         <div class="form-group">
-            <label for="nombre">Datos Transaccion</label>
-            <input type="text" name="usuario_ini" class="form-control" value="{{$empleado->usuario_ini}}" placeholder="usuario">
-            <input type="text" name="fch_ini" class="form-control" value="{{$empleado->fch_ini}}" placeholder="fecha">
-            <input type="text" name="host_ini" class="form-control" value="{{$empleado->host_ini}}" placeholder="host">
+            <label for="nombre">Discapacidad</label>
+            <input type="text" name="cat_discapacidad" class="form-control" value="{{$empleado->cat_discapacidad}}" placeholder="campo opcional">
         </div>
 
         <div class="form-group">

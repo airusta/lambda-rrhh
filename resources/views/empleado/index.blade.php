@@ -14,12 +14,16 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>Documento</th>
+                    <th>Extension</th>
                     </thead>
                     @foreach ($empleados as $per)
                         <tr>
                             <td>{{$per->id_empleado}}</td>
                             <td>{{$per->primer_nombre}}</td>
                             <td>{{$per->primer_apellido}}</td>
+                            <td>{{$per->documento}}</td>
+                            <td>{{$per->complemento1}}</td>
                             <td>
                                 <a href="{{URL::action('EmpleadoController@edit',$per->id_empleado)}}"><button class="btn btn-info">Editar</button></a>
                                 <a href="" data-target="#modal-delete-{{$per->id_empleado}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
