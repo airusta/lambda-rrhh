@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('content')
+@section('contenido')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,8 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Auth::user()->nombre}}
+                    {{Auth::user()->id_usuario}}
                     You are logged in!
+                    @foreach($rol as $r)
+                        {{$r->nombre}}
+                    @endforeach
                 </div>
             </div>
         </div>
