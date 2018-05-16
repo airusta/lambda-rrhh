@@ -101,6 +101,14 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label for="nombre">Rol</label>
+            <select class="form-control" name="rol">
+                @foreach($rol as $s)
+                    <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
+                @endforeach
+            </select>
+        </div>
 
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>

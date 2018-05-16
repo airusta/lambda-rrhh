@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Empleado_Seguro;
 use App\Seguro;
+use App\Rol;
+use App\Usuario_Rol;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -37,7 +39,9 @@ class EmpleadoController extends Controller
     public function create()
     {
         $seguro = Seguro::get();
-        return view("empleado.create")->with('seguro',$seguro);
+        $rol = Rol::get();
+        return view("empleado.create")->with('seguro',$seguro)->with('rol',$rol);
+
 
 
     }
@@ -83,6 +87,14 @@ class EmpleadoController extends Controller
         $emp_s->fch_ini=Carbon::now();
         $emp_s->host_ini='127.0.0.1';
         $emp_s->save();
+
+        $emp_r= new Usuario_Rol;
+        $emp_r->id_usuario=$user->id_usuario;
+        $emp_r->id_rol=$request->rol;
+        $emp_r->usuario_ini=Auth::user()->id_usuario;
+        $emp_r->fch_ini=Carbon::now();
+        $emp_r->host_ini='127.0.0.1';
+        $emp_r->save();
         return Redirect::to('empleado');
     }
     public function show($id)
@@ -91,7 +103,7 @@ class EmpleadoController extends Controller
     }
     public function edit($id)
     {
-        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id),"seguro"=>Seguro::get()]);
+        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id),"seguro"=>Seguro::get(),"rol"=>Rol::get()]);
     }
     public function update(EmpleadoFormRequest $request,$id)
     {
@@ -125,6 +137,13 @@ class EmpleadoController extends Controller
         $emp_s->fch_mod=Carbon::now();
         $emp_s->host_mod='127.0.0.1';
         $emp_s->update();
+
+        $emp_r=Usuario_Rol::where('id_usuario',$empleado->id_usuario)->firstOrFail();
+        $emp_r->id_rol=$request->rol;
+        $emp_r->usuario_mod=Auth::user()->id_usuario;
+        $emp_r->fch_mod=Carbon::now();
+        $emp_r->host_mod='127.0.0.1';
+        $emp_r->update();
         return Redirect::to('empleado');
     }
     public function destroy($id)
