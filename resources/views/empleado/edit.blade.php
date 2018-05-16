@@ -13,7 +13,7 @@
             </div>
         @endif
 
-        {!!Form::model($empleado,['method'=>'PATCH','route'=>['empleado.update',$empleado->id_empleado]])!!}
+        {!!Form::model($empleado,['method'=>'PATCH','route'=>['empleado.update',$empleado->id_empleado,$emp_seg->id_empleado,$emp_r->id_usuario]])!!}
         {{Form::token()}}
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -83,9 +83,13 @@
         </div>
         <div class="form-group">
             <label for="nombre">Seguro</label>
-            <select class="form-control" name="seguro">
+            <select class="form-control" name="seguro"  >
                 @foreach($seguro as $s)
-                    <option value="{{$s->id_seguro}}">{{$s->cat_seguro}}</option>
+                    @if ($s->id_seguro==$emp_seg->id_seguro)
+                    <option value="{{$s->id_seguro}}" selected>{{$s->cat_seguro}}</option>
+                    @else
+                        <option value="{{$s->id_seguro}}" >{{$s->cat_seguro}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
@@ -93,7 +97,11 @@
             <label for="nombre">Rol</label>
             <select class="form-control" name="rol">
                 @foreach($rol as $s)
-                    <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
+                    @if ($s->id_rol==$emp_r->id_rol)
+                    <option value="{{$s->id_rol}}" selected>{{$s->nombre}}</option>
+                    @else
+                        <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>

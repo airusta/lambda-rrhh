@@ -102,8 +102,12 @@ class EmpleadoController extends Controller
         return view("empleado.show",["empleado"=>Empleado::findOrFail($id)]);
     }
     public function edit($id)
+
     {
-        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id),"seguro"=>Seguro::get(),"rol"=>Rol::get()]);
+        $empleado=Empleado::findOrFail($id);
+        $emp_seg=Empleado_Seguro::where('id_empleado',$empleado->id_empleado)->firstOrFail();
+        $emp_r=Usuario_Rol::where('id_usuario',$empleado->id_usuario)->firstOrFail();
+        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id),"seguro"=>Seguro::get(),"rol"=>Rol::get(),"emp_seg"=>$emp_seg,"emp_r"=>$emp_r]);
     }
     public function update(EmpleadoFormRequest $request,$id)
     {
