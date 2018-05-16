@@ -24,7 +24,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'administrador'], function () {
     Route::resource('empleado','EmpleadoController');
 });
-
+/*
 Route::group(['middleware' => 'empleado'], function () {
     Route::resource('empleado','EmpleadoController');
 });
+*/
