@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Empleado;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\EmpleadoFormRequest;
 use DB;
@@ -48,7 +49,7 @@ class EmpleadoController extends Controller
         $user->password=bcrypt($request->get('password'));
         $user->usuario_ini=1;
         $user->fch_ini=Carbon::now();
-        $user->host_ini='localhost';
+        $user->host_ini='127.0.0.1';
         $user->save();
         $empleado=new Empleado;
         $empleado->primer_nombre=$request->get('primer_nombre');
@@ -72,9 +73,16 @@ class EmpleadoController extends Controller
         $empleado->id_usuario=$user->id_usuario;
         $empleado->usuario_ini=1;
         $empleado->fch_ini=Carbon::now();
-        $empleado->host_ini='localhost';
+        $empleado->host_ini='127.0.0.1';
         $empleado->save();
 
+        $emp_s= new Empleado_Seguro;
+        $emp_s->id_empleado=$empleado->id_empleado;
+        $emp_s->id_seguro=$request->seguro;
+        $emp_s->usuario_ini=Auth::user()->id_usuario;
+        $emp_s->fch_ini=Carbon::now();
+        $emp_s->host_ini='127.0.0.1';
+        $emp_s->save();
         return Redirect::to('empleado');
     }
     public function show($id)
@@ -83,7 +91,7 @@ class EmpleadoController extends Controller
     }
     public function edit($id)
     {
-        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id)]);
+        return view("empleado.edit",["empleado"=>Empleado::findOrFail($id),"seguro"=>Seguro::get()]);
     }
     public function update(EmpleadoFormRequest $request,$id)
     {
@@ -110,6 +118,13 @@ class EmpleadoController extends Controller
         $empleado->fch_ini=Carbon::now();
         $empleado->host_ini='localhost';
         $empleado->update();
+
+        $emp_s=Empleado_Seguro::where('id_empleado',$empleado->id_empleado)->firstOrFail();
+        $emp_s->id_seguro=$request->seguro;
+        $emp_s->usuario_mod=Auth::user()->id_usuario;
+        $emp_s->fch_mod=Carbon::now();
+        $emp_s->host_mod='127.0.0.1';
+        $emp_s->update();
         return Redirect::to('empleado');
     }
     public function destroy($id)

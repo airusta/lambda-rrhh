@@ -81,6 +81,14 @@
             <label for="nombre">Discapacidad</label>
             <input type="text" name="cat_discapacidad" class="form-control" value="{{$empleado->cat_discapacidad}}" placeholder="campo opcional">
         </div>
+        <div class="form-group">
+            <label for="nombre">Seguro</label>
+            <select class="form-control" name="seguro">
+                @foreach($seguro as $s)
+                    <option value="{{$s->id_seguro}}">{{$s->cat_seguro}}</option>
+                @endforeach
+            </select>
+        </div>
 
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>
