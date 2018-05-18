@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Nuevo Empleado</h3>
+        <h3>Registra el empleado en el sistema de TALENTO HUMANO</h3>
         @if (count($errors)>0)
             <div class="alert alert-danger">
                 <ul>
@@ -15,35 +15,50 @@
 
         {!!Form::open(array('url'=>'empleado','method'=>'POST','autocomplete'=>'off'))!!}
         {{Form::token()}}
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="primer_nombre" class="form-control" placeholder="campo obligatorio">
+<label for="nombre">ACCESO DE USUARIO</label>
+	 <div class="form-group">
+            <label for="nombre">Usuario</label>
+            <input type="text" name="usuario" class="form-control" placeholder="para empleados con acceso">
         </div>
         <div class="form-group">
-            <label for="nombre">Segundo Nombre</label>
-            <input type="text" name="segundo_nombre" class="form-control" placeholder="campo opcional">
+            <label for="nombre">Email</label>
+            <input type="text" name="email" class="form-control" placeholder="para empleados con acceso">
         </div>
         <div class="form-group">
-            <label for="nombre">Tercer Nombre</label>
-            <input type="text" name="tercer_nombre" class="form-control" placeholder="campo opcional">
+            <label for="nombre">Contraseña</label>
+            <input type="password" name="pass" class="form-control" placeholder="para empleados con acceso">
+        </div>
+<label for="nombre">DATOS DE USUARIO</label>
+	<div class="form-group">
+            <label for="nombre">Nombre del Empleado</label>
+            <input type="text" name="primer_nombre" class="form-control" placeholder="*">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Segundo Nombre del Empleado</label>
+            <input type="text" name="segundo_nombre" class="form-control" placeholder="">
         </div>
         <div class="form-group">
-            <label for="nombre">Apellido</label>
-            <input type="text" name="primer_apellido" class="form-control" placeholder="campo obligatorio">
+            <label for="nombre">Tercer Nombre del Empleado</label>
+            <input type="text" name="tercer_nombre" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Apellido del Empleado</label>
+            <input type="text" name="primer_apellido" class="form-control" placeholder="*">
         </div>
         <div class="form-group">
             <label for="nombre">Segundo Apellido</label>
-            <input type="text" name="segundo_apellido" class="form-control" placeholder="campo opcional">
+            <input type="text" name="segundo_apellido" class="form-control" placeholder="">
         </div>
         <div class="form-group">
             <label for="nombre">Tercer Apellido</label>
-            <input type="text" name="tercer_apellido" class="form-control" placeholder="campo opcional">
+            <input type="text" name="tercer_apellido" class="form-control" placeholder="">
         </div>
         <div class="form-group">
             <label for="nombre">Documento</label>
             <input type="text" name="documento" class="form-control" placeholder="Numero de Documento"><br>
-            <input type="text" name="complemento1" class="form-control" placeholder="Extension 1"><br>
-            <input type="text" name="complemento2" class="form-control" placeholder="Extension 2">
+            <input type="text" name="complemento1" class="form-control" placeholder="Extension"><br>
+            <input type="text" name="complemento2" class="form-control" placeholder="Extension Op.">
         </div>
         <div class="form-group">
             <label for="nombre">Tipo Documento</label>
@@ -81,7 +96,7 @@
             <label for="nombre">Discapacidad</label>
             <input type="text" name="cat_discapacidad" class="form-control" placeholder="campo opcional">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="nombre">Usuario</label>
             <input type="text" name="usuario" class="form-control" placeholder="para empleados con acceso">
         </div>
@@ -93,7 +108,8 @@
             <label for="nombre">Contraseña</label>
             <input type="password" name="pass" class="form-control" placeholder="para empleados con acceso">
         </div>
-        <div class="form-group">
+-->
+       <!-- <div class="form-group">
             <label for="nombre">Seguro</label>
             <select class="form-control" name="seguro">
                 @foreach($seguro as $s)
@@ -108,6 +124,21 @@
                     <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
                 @endforeach
             </select>
+        </div>
+-->
+	<div class="form-group">
+            <label for="nombre">SEGURO</label>
+            <input type ="text" class="form-control" name="cat_seguro">
+                <!--@foreach($rol as $s)
+                    <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
+                @endforeach-->
+        </div>
+	<div class="form-group">
+            <label for="nombre">Rol</label>
+            <input type ="text" class="form-control" name="id_rol">
+                <!--@foreach($rol as $s)
+                    <option value="{{$s->id_rol}}">{{$s->nombre}}</option>
+                @endforeach-->
         </div>
 
         <div class="form-group">

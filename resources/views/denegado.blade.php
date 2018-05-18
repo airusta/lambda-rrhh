@@ -8,7 +8,7 @@
                     <div class="card-header">Error</div>
 
                     <div class="card-body">
-                        Acceso denegado, no es {{$rol}}
+                        Acceso no permitido!!!, no es {{$rol}}
                     </div>
                 </div>
             </div>

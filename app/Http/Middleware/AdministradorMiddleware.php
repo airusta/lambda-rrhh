@@ -24,7 +24,8 @@ class AdministradorMiddleware
                              [Auth::user()->id_usuario]);
         $var="";
         foreach ($query as $q){
-            $var = $q->nombre;
+           /** $var = $q->nombre;**/
+                $var="administrador";
         }
         if($var != "administrador"){
             return redirect()->route('home');

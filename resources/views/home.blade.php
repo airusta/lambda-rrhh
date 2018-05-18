@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Sistema Lambda de Talento Humano</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Auth::user()->id_usuario}}
-                    You are logged in!
+                    <!--{{Auth::user()->id_usuario}}
+                    Ingreso al Sistema.-->
                     @foreach($rol as $r)
                         {{$r->nombre}}
                     @endforeach
